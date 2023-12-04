@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+    <div class="header"></div>
+    <div class="content mt-5">
+        <section class="welcome">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="welcome-title">Welcome back, <span id="user-name"></span></h1>
+                        <hr class="welcome-line">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="data-table-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="data-table-title">Data Table</h3>
+                        <div class="table-data-tool">
+                            <div class="table-data-tool-right">
+                                <a class="btn btn-success" href="/addProduct.html">
+                                    <i class="zmdi zmdi-plus"></i>Add Product
+                                </a>
+                                <div class="select-dropdown">
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <div class="container">
+                                <table class="table table-data">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Last Updated</th>
+                                            <th>Quantity</th>
+                                            <th>Sold</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="productContainer"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="footer"></div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/backendConnect.js"></script>
+    <script src="./component/header.js"></script>
+    <script src="./component/headContent.js"></script>
+    <script src="./component/footer.js"></script>
+    <script>
+        let headTag = document.querySelector('head');
+        headTag.innerHTML = metaContent('DashBoard');
+        linkStyleRender('./css/dashboard.css');
+    </script>
+    <script src="./js/index.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+
+</html>

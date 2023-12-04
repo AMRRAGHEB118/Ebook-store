@@ -1,0 +1,64 @@
+.content {
+    min-height: 460px;
+}
+
+.welcome {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.welcome-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    color: #007bff;
+}
+
+.welcome-line {
+    border-top: 2px solid #ccc;
+    margin-top: 20px;
+}
+
+.data-table-section {
+    padding-top: 20px;
+}
+
+.data-table-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+.select-dropdown {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.data-table-section {
+    padding: 50px 0;
+}
+
+.data-table-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.table-data-tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}

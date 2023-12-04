@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+  <div class="header"></div>
+  <div class="contentPage">
+    <div class="contener">
+      <div class="card">
+        <div class="card-header">
+          Add <strong>Product</strong>
+        </div>
+        <div class="card-body card-block">
+          <form method="post" class="form-horizontal" onsubmit="event.preventDefault(); addProduct();">
+            <div class="form-group row">
+              <label for="book-title" class="form-control-label col-md-3">Book Title</label>
+              <div class="col-md-9">
+                <input type="text" id="book-title" name="book-title" placeholder="Enter Book Title..."
+                  class="form-control">
+                <span class="help-block"></span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="description" class="form-control-label col-md-3">Description</label>
+              <div class="col-md-9">
+                <textarea id="description" name="description" placeholder="Enter Description..." class="form-control"></textarea>
+                <span class="help-block"></span>
+              </div>
+            </div>            
+            <div class="form-group row">
+              <label for="quantity" class="form-control-label col-md-3">Quantity</label>
+              <div class="col-md-9">
+                <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity..." class="form-control">
+                <span class="help-block"></span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="price" class="form-control-label col-md-3">Price</label>
+              <div class="col-md-9">
+                <input type="number" id="price" name="price" placeholder="Enter Price..." class="form-control">
+                <span class="help-block"></span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="select" class="form-control-label col-md-3">Select Category</label>
+              <div class="col-md-9">
+                <select name="select" id="selectCategory" class="form-control"></select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="image" class="form-control-label col-md-3">Image</label>
+              <div class="col-md-9">
+                <input type="text" id="image" name="image" placeholder="Enter Image URL" class="form-control">
+                <span class="help-block"></span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-2 offset-md-3">
+                <button type="submit" class="btn btn-sm btn-primary">Create</button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-3 offset-md-3">
+                <h5 id="message"></h5>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer"></div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/backendConnect.js"></script>
+  <script src="./component/header.js"></script>
+  <script src="./component/headContent.js"></script>
+  <script src="./component/footer.js"></script>
+  <script>
+    let headTag = document.querySelector('head');
+    headTag.innerHTML = metaContent('Add Product');
+    linkStyleRender('./css/addProduct.css');
+  </script>
+  <script src="./js/index.js"></script>
+  <script src="./js/addProduct.js"></script>
+</body>
+
+</html>
