@@ -1,3 +1,4 @@
+const headerContainer = document.querySelector('.header');
 let headerContent = `
 <div class="container">
   <div class="navbar">
@@ -19,15 +20,45 @@ let headerContent = `
   </div>
   
 </div>
-`
-const headerContainer = document.querySelector('.header');
-headerContainer.innerHTML = headerContent;
+` 
+let headerContentGustCase= `
+<div class="container">
+  <div class="navbar">
+  <center>
+   <div class="logo">
+      <a href="/">
+        <img src="images/EbookStore-Logo.png" alt="EbookStore-Logo"
+      /></a>
+    </div>
+
+  </center>
+    <!----------  Nav Bar ------------------>
+    <nav>
+    <ul id="MenuItems">
+      <li><a href="/">Home</a></li>
+     
+      <li><a href="../eBookStore/about-me-page-master/index.html">About us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+    <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+  </div>
+  
+</div>
+`   
 
 let userDetails = JSON.parse(localStorage.getItem('userDetails'));
 let isAuthenticated = false;
 
 if (userDetails) {
   isAuthenticated = true;
+}
+
+if (isAuthenticated){
+  headerContainer.innerHTML = headerContent;
+} 
+else{
+  headerContainer.innerHTML = headerContentGustCase;
 }
 
 const accountLink = document.querySelector('#MenuItems');
