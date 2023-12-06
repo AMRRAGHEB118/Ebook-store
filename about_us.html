@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="header"></div>
+
+    <div class="cardd" style="
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 1200px;  position: relative;; margin: 10px; padding: 15px; font-size: 1.5em;">
+
+        <p style="color: firebrick;">
+            <center>About Us</center> <br>
+            Welcome to E-Book Store, your one-stop destination for a wide range of e-books. We are passionate about
+            bringing literature to your fingertips and providing an immersive reading experience.
+
+            Explore our extensive collection of e-books covering various genres, from fiction to non-fiction, mystery to
+            romance. Our team is dedicated to curating quality content to cater to diverse tastes and interests.
+
+            At E-Book Store, we believe in the power of knowledge and the joy of reading. Join us on this literary
+            journey as we strive to make the world of literature easily accessible to everyone.
+
+            © 2023 E-Book Store. All rights reserved.
+        </p>
+
+    </div>
+    <div class="iconss"style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 280px; position: relative;left: 1230px;bottom:360px;height: 350px; ">
+        <center>
+            <h4 >for more infos <br> you can follow us on </h4>
+        </center>
+        <center>
+            <div  style="font-size: 1.9em; ">
+               <a href="">  <i class="fa-brands fa-facebook"></i> facebook </a> <br> 
+             <a href="">  <i class="fa-brands fa-twitter"></i> twitter </a>   <br>
+              <a href="">  <i class="fa-brands fa-instagram"></i> instgram </a> 
+            </div>
+        </center>
+    </div>
+    <div class="footer"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/backendConnect.js"></script>
+    <script src="./component/header.js"></script>
+    <script src="./component/headContent.js"></script>
+    <script src="./component/footer.js"></script>
+    <script>
+        let headTag = document.querySelector('head');
+        headTag.innerHTML = metaContent('Book Store');
+    </script>
+    <script src="./js/index.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>
