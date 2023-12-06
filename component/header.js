@@ -15,6 +15,7 @@ let headerContent = `
         <li><a href="./about_us.html">About us</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="rules.html">Terms</a></li>
+        <li><a href="profile.html">Profile</a></li>
       </ul>
     </nav>
     <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
