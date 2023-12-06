@@ -1,0 +1,22 @@
+.tit_ {
+    color: #000000;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.terms {
+    background-color: #e4dfdf;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px;
+    transition: box-shadow 0.3s ease;
+    padding: 80px;
+    font-size: 1.2em;
+    
+}
+
+.terms:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
