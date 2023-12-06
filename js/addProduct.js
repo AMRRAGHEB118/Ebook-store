@@ -30,8 +30,6 @@ const getCategories = async () => {
 }
 }
 
-getCategories();
-
 const addProduct = async () => {
     const bookTitle = document.getElementById('book-title').value;
     const description = document.getElementById('description').value;
@@ -83,3 +81,5 @@ const addProduct = async () => {
         console.error(error);
     }
 }
+
+getCategories();

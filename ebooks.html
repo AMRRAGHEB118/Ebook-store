@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+    <div class="header"></div>
+    <div class="ebooks">
+        <div class="small-container my-4">
+            <div class="row row-2">
+                <h2>All Ebooks</h2>
+                <div class="container"><div id="optionList"></div></div>
+            </div>
+            <div id="productList" class="row"></div>
+            <div id="paginationContainer" class="pagination-btn">
+            </div>  
+            <div class="youtube-container">
+                <div class="youtube-row">
+                    <div class="col-2">
+                        <h2>5 Books You Must Read If You're Serious About Success</h2>
+                    </div>
+                    <div class="col-2">
+                        <iframe id="youtubevideo" width="560" height="315"
+                            src="https://www.youtube.com/embed/LqJBXtG9xxk" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>          
+        </div>
+        <div class="footer"></div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="./js/backendConnect.js"></script>
+        <script src="./component/header.js"></script>
+        <script src="./component/headContent.js"></script>
+        <script src="./component/footer.js"></script>
+        <script>
+            let headTag = document.querySelector('head');
+            headTag.innerHTML = metaContent('E-Books');
+            linkStyleRender('./css/ebooks.css');
+        </script>
+        <script src="./js/index.js"></script>
+        <script src="./js/ebooks.js"></script>
+</body>
+
+</html>
