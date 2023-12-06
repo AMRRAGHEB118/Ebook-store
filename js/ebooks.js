@@ -1,6 +1,5 @@
 const optionListContainer = document.getElementById('optionList');
 const productListContainer = document.getElementById('productList');
-// const paginationButtons = document.querySelectorAll('.pagination-btn button');
 const paginationContainer = document.getElementById('paginationContainer');
 
 const ITEMS_PER_PAGE = 12;

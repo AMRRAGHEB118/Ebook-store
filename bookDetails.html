@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+    <div class="header"></div>
+    <div class="bookDetails">
+        <div id="bookDetailsContainer" class="small-container single-product"></div>
+        <div class="container">
+            <h2>Comments Section</h2>
+            <div id="comments-container"></div>
+            <form id="comment-form">
+                <textarea id="comment-input" placeholder="Add Your Comment"></textarea>
+                <button type="submit">Comment</button>
+            </form>
+        </div>
+        <div class="small-container">
+            <div class="row row-2">
+                <h2>Related Books</h2>
+                <a href="../ebooks.html">View More</a>
+
+            </div>
+        </div>
+        <div class="small-container">
+            <div class="row">
+                <div class="col-4">
+                    <a href="./book-detail-(16).html">
+                        <img src="../images/Book 16.jpg" alt="Book 4" /></a>
+                    <a href="./book-detail-(16).html">
+                        <h4>Anna Karenina</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>Priece:500</p>
+                </div>
+                <div class="col-4">
+                    <a href="./book-detail-(5).html">
+                        <img src="../images/Book 5.jpg" alt="Book 4" /></a>
+                    <a href="./book-detail-(5).html">
+                        <h4>Anna Karenina</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>Rs.500</p>
+                </div>
+                <div class="col-4">
+                    <a href="./book-detail-(6).html">
+                        <img src="../images/Book 6.jpg" alt="Book 4" /></a>
+                    <a href="./book-detail-(6).html">
+                        <h4>Anna Karenina</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                    <p>Rs.500</p>
+                </div>
+                <div class="col-4">
+                    <a href="./book-detail-(7).html">
+                        <img src="../images/Book 7.jpg" alt="Book 4" /></a>
+                    <a href="./book-detail-(7).html">
+                        <h4>Anna Karenina</h4>
+                    </a>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>Rs.500</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/backendConnect.js"></script>
+    <script src="./component/header.js"></script>
+    <script src="./component/headContent.js"></script>
+    <script src="./component/footer.js"></script>
+    <script>
+        let headTag = document.querySelector('head');
+        headTag.innerHTML = metaContent('E-Books');
+        linkStyleRender('./css/bookDetails.css');
+    </script>
+    <script src="./js/index.js"></script>
+    <script src="./js/bookDetails.js"></script>
+</body>
+
+</html>
