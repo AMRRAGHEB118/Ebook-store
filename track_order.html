@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+    <div class="header"></div>
+    <div class="container track">
+        <div class="progress-checkout-container">
+            <div class="progress-step-container">
+                <div class="step-check"></div>
+                <span class="step-title">Shipping</span>
+            </div>
+            <div class="progress-step-container">
+                <div class="step-check"></div>
+                <span class="step-title">Payment</span>
+            </div>
+            <div class="progress-step-container">
+                <div class="step-check"></div>
+                <span class="step-title">Received</span>
+            </div>
+        </div>
+        <div class="form-container">
+            <h2 class="form-title">Order Details</h2>
+            <form action="" class="checkout-form">
+                <div class="input-line">
+                    <label class="labell">User Name :</label>
+                    <label class="label12">Moahamed Adel Moahamed</label>
+                </div>
+                <div class="input-line">
+                    <label class="labell">Address :</label>
+                    <label class="label12">room - street - locality</label>
+                </div>
+                <div class="input-line">
+                    <label class="labell">Order Number :</label>
+                    <label class="label12">#1589</label>
+                </div>
+                <form action="../index.html" class="checkout-form">
+                    <a href="/" class="cancel2a"> <input type="button" value="Back to Home"></a>
+                </form>
+                <form action="" class="checkout-form">
+                </form>
+            </form>
+            <button class="cancel" onclick="show_pup()"> <input type="button" value="Cancel Order"></button>
+            <div class="pop_view" id="show">
+                <img src="./images/multiply.png" alt="">
+                <h2>SORRY</h2>
+                <p>
+                    Your Order Canceled
+                </p>
+                <button class="closer_pop" onclick="hide_pup()">close</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+    <script src="https://kit.fontawesome.com/43fb81e0ee.js" crossorigin="anonymous"></script>
+    <script src="./component/header.js"></script>
+    <script src="./component/headContent.js"></script>
+    <script src="./component/footer.js"></script>
+    <script>
+        let headTag = document.querySelector('head');
+        headTag.innerHTML = metaContent('Track Order');
+        linkStyleRender('./css/track.css');
+        function show_pup(){
+            document.getElementById('show').classList.add('oppen');
+        }
+        function hide_pup(){
+            document.getElementById('show').classList.remove('oppen');
+        }
+    </script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
