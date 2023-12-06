@@ -36,9 +36,7 @@ let headerContentGustCase= `
     <nav>
     <ul id="MenuItems">
       <li><a href="/">Home</a></li>
-     
-      <li><a href="../eBookStore/about-me-page-master/index.html">About us</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="../about-us.html">About us</a></li>
     </ul>
   </nav>
     <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />

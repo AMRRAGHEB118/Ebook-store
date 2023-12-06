@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+    <div class="header"></div>
+    <div class="contact-page">
+        <div class="contact-form" id="contactForm">
+            <h2 class="form-title">Contact Us</h2>
+            <form onsubmit="event.preventDefault(); submitContactForm()" id="contactForm">
+                <input type="text" id="name" name="name" style="display:none" disabled />
+                <input type="email" id="email" name="email" style="display:none" disabled />
+                <textarea id="contactMessage" class="form-textarea" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary form-button">Submit</button>
+                <p id="contact-message" class="form-message"></p>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer"></div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/backendConnect.js"></script>
+    <script src="./component/header.js"></script>
+    <script src="./component/headContent.js"></script>
+    <script src="./component/footer.js"></script>
+    <script>
+        let headTag = document.querySelector('head');
+        headTag.innerHTML = metaContent('Contact Us');
+        linkStyleRender('./css/contact.css');
+    </script>
+    <script src="./js/index.js"></script>
+    <script src="./js/contact.js"></script>
+</body>
+</html>
