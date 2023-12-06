@@ -21,7 +21,7 @@ let offerContent = `
         young people think twice about the promise that going to college
         at any cost is the only path to upward social mobility.
       </small>
-      <a href="./cart.html?offer=true" class="btn">Buy Now &#8594;</a>
+      <a href="./cart.html?productId=656e0a35a459844916bcfdfe&offer=true" class="btn">Buy Now &#8594;</a>
     </div>
   </div>
 </div>
