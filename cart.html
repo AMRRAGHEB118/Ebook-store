@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+    <div class="header"></div>
+    <div class="small-container cart-page">
+        <table id="cart-table">
+            <tr>
+                <th>Ebook</th>
+                <th>Quantity</th>
+                <th>Categories</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="images/ActionBook4.jpeg" alt="Book 6" />
+                        <div>
+                            <p>One Piece</p>
+                            <small>Price: 500.00 $</small> <br />
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td>5</td>
+                <td>Animation</td>
+                <td>500.00$</td>
+            </tr>
+        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Total</td>
+                    <td>2150.00 $</td>
+                    <div class="col-2">
+                </tr>
+            </table>
+            <div class="col-12">
+                <a href="./payment gateway/index.html" class="btn">Go To Payment &#x27F6;</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/backendConnect.js"></script>
+    <script src="./component/header.js"></script>
+    <script src="./component/headContent.js"></script>
+    <script src="./component/footer.js"></script>
+    <script>
+        let headTag = document.querySelector('head');
+        headTag.innerHTML = metaContent('Cart');
+        linkStyleRender('./css/cart.css');
+    </script>
+    <script src="./js/index.js"></script>
+    <script src="./js/cart.js"></script>
+</body>
+
+</html>

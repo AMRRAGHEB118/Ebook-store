@@ -25,7 +25,7 @@ let headerContentGustCase= `
 <div class="container">
   <div class="navbar">
   <center>
-   <div class="logo">
+  <div class="logo">
       <a href="/">
         <img src="images/EbookStore-Logo.png" alt="EbookStore-Logo"
       /></a>
