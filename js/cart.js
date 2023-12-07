@@ -19,39 +19,53 @@ const getCartItems = async () => {
 
 const renderCart = async () => {
     const cartItems = await getCartItems();
+    console.log(cartItems);
 
     const cartTable = document.getElementById('cart-table');
     const totalPriceElement = document.getElementById('total-price');
+    const discountInfoElement = document.getElementById('discount-info');
 
     cartTable.innerHTML = '<tr><th>Ebook</th><th>Quantity</th><th>Categories</th><th>Subtotal</th></tr>';
 
     let totalPrice = 0;
+    let cartQuantity = 0;
 
-    cartItems.forEach(item => {
+    cartItems.products.forEach(item => {
         const subtotal = item.quantity * item.price;
         totalPrice += subtotal;
+        cartQuantity += item.quantity;
 
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>
                 <div class="cart-info">
-                    <img src="images/ActionBook4.jpeg" alt="${item.name}" />
+                    <img src="${item.product.coverImage}" alt="${item.product.title}" />
                     <div>
-                        <p>${item.name}</p>
-                        <small>Price: ${item.price.toFixed(2)} $</small> <br />
+                        <p>${item.product.title}</p>
+                        <small>Price: ${item.product.price.toFixed(2)} $</small> <br />
                         <a href="#">Remove</a>
                     </div>
                 </div>
             </td>
             <td>${item.quantity}</td>
-            <td>${item.category}</td>
+            <td>${item.product.category.title}</td>
             <td>${subtotal.toFixed(2)} $</td>
         `;
 
         cartTable.appendChild(row);
     });
 
-    totalPriceElement.textContent = totalPrice.toFixed(2) + ' $';
+    let discount = 0;
+
+    if (cartQuantity > 3) {
+        discount = 0.25 * totalPrice;
+        totalPrice -= discount;
+        discountInfoElement.innerHTML = `<p>Discount: ${discount.toFixed(2)} $</p>`;
+    } else {
+        discountInfoElement.innerHTML = '';
+    }
+
+    totalPriceElement.textContent = `${totalPrice.toFixed(2)} $`;
 };
 
 renderCart();
