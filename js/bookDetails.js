@@ -5,6 +5,8 @@ const commentInput = document.getElementById('comment-input');
 const urlSearchParams = new URLSearchParams(window.location.search);
 const selectedBook = urlSearchParams.get('id')
 const productListContainer = document.getElementById('productList');
+let offer = undefined;
+
 
 if (!selectedBook) {
 window.location.href = 'ebooks.html';
@@ -25,13 +27,13 @@ return formattedDate;
 };
 
 const addToCart = async (bookId) => {
-const response = await axios.post(`${backendUrl}/cart/${bookId}`, {
-userId: userDetails.user._id,
-quantity: document.getElementById('quantityInput').value
-});
-if (response.data.success) {
-alert('Book added to cart');
-}
+    const response = await axios.post(`${backendUrl}/cart/${bookId}?offer=${offer}`, {
+    userId: userDetails.user._id,
+    quantity: document.getElementById('quantityInput').value
+    });
+    if (response.data.success) {
+    alert('Book added to cart');
+    }
 }
 
 const bookDetailsRender = (book) => {
@@ -44,15 +46,23 @@ bookDetailsContainer.innerHTML = `
             <p>Home / Ebook</p>
             <h1>${book.title}</h1>
             <h4>$${book.price} <i class="fa-solid fa-tags"></i></h4>
+
+            <div class="coupon-input-section my-3">
+            <label class="coupon-label" for="couponCode">Enter Coupon Code:</label>
+            <input type="text" id="couponCode" class="coupon-input w-100" placeholder="Coupon Code">
+            <button class="btn btn-primary mt-3" onclick="applyCoupon()">Apply Coupon</button>
+            <p id="couponMessage" class="coupon-message d-none"></p>
+            </div>
+
             <input id="quantityInput" min="1" type="number" value="1" />
             <button class="btn" onclick="addToCart(${`'${book._id}'`})">Add To Cart</button>
             <div class="btnswq">
-                <button id="btnh112" class="btntr"><i class="fas fa-heart"></i></button>
+                <button id="btnh112" class="btn btn-secondary"><i class="fas fa-heart"></i></button>
                 <div class="Cardsa" id="pup">
                     <img src="../Faver/heart15.png" alt="">
                     <h1>Add</h1>
                     <p>To-Favorite</p>
-                    <button class="btncx-close" onclick="hidde_pup()">close</button>
+                    <button class="btn btn-danger" onclick="hidde_pup()">close</button>
                 </div>
             </div>
             <h3>Book Details <i class="fa fa-indent"></i></h3>
@@ -168,6 +178,41 @@ products.forEach((product) => {
 console.error(error);
 }
 }
+
+
+const applyCoupon = async () => {
+    const couponInput = document.getElementById('couponCode');
+    const coupon = couponInput.value;
+
+    try {
+        const response = await axios.post(`${backendUrl}/coupon/apply`, {
+            id: coupon,
+            product: selectedBook
+        });
+
+        const data = response.data;
+
+        if (response.data.success) {
+            document.getElementById('couponMessage').style.color = 'green';
+            document.getElementById('couponMessage').innerText = data.message;
+            document.getElementById('couponMessage').classList.remove('d-none');
+            couponInput.value = '';
+            commentInput.setAttribute('disabled', true);
+            offer = 20;
+        } else {
+            document.getElementById('couponMessage').style.color = 'red';
+            document.getElementById('couponMessage').innerText = data.message;
+            document.getElementById('couponMessage').classList.remove('d-none');
+            couponInput.value = '';
+        }
+    } catch (error) {
+        document.getElementById('couponMessage').style.color = 'red';
+        document.getElementById('couponMessage').innerText = error.response.data.message;
+        document.getElementById('couponMessage').classList.remove('d-none');
+        couponInput.value = '';
+    }
+}
+
 
 fetchComments();
 getBookDetails();

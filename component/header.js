@@ -88,7 +88,7 @@ if (cartLinkElement && dashboardLinkElement) {
       cartLinkElement.style.display = 'inline';
       dashboardLinkElement.style.display = 'none';
     } else if (userDetails.user.role === 'seller') {
-      cartLinkElement.style.display = 'none';
+      cartLinkElement.style.display = 'inline';
       dashboardLinkElement.style.display = 'inline';
     }
   } else {

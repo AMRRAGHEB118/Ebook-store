@@ -1,7 +1,7 @@
 if (!userDetails) {
     window.location.href = 'login.html';
 } else {
-    if(userDetails.user.role !== 'buyer') {
+    if(userDetails.user.role === 'admin') {
         window.location.href = '/';
     }
 }
@@ -19,20 +19,22 @@ const getCartItems = async () => {
 
 const renderCart = async () => {
     const cartItems = await getCartItems();
-    console.log(cartItems);
 
     const cartTable = document.getElementById('cart-table');
     const totalPriceElement = document.getElementById('total-price');
     const discountInfoElement = document.getElementById('discount-info');
+    const appliedCouponElement = document.getElementById('applied-coupon');
 
     cartTable.innerHTML = '<tr><th>Ebook</th><th>Quantity</th><th>Categories</th><th>Subtotal</th></tr>';
 
-    let totalPrice = 0;
+    let totalPrice = cartItems.totalPrice;
+    let totalItemPrice = 0;
     let cartQuantity = 0;
 
     cartItems.products.forEach(item => {
         const subtotal = item.quantity * item.price;
-        totalPrice += subtotal;
+        totalItemPrice += subtotal;
+
         cartQuantity += item.quantity;
 
         const row = document.createElement('tr');
@@ -56,6 +58,10 @@ const renderCart = async () => {
     });
 
     let discount = 0;
+
+    if(totalPrice < totalItemPrice) {
+        appliedCouponElement.classList.remove('d-none');
+    }
 
     if (cartQuantity > 3) {
         discount = 0.25 * totalPrice;
