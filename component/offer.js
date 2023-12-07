@@ -11,7 +11,6 @@ let offerContent = `
         <div>
           <h1>Discount Offer <i class="fa-solid fa-tags"></i></h1>
         </div>
-
       </h1>
       <h2>Romantic Comedy, by Curtis Sittenfeld</h2>
       <br />
@@ -21,8 +20,22 @@ let offerContent = `
         young people think twice about the promise that going to college
         at any cost is the only path to upward social mobility.
       </small>
-      <a href="./cart.html?productId=656e0a35a459844916bcfdfe&offer=true" class="btn">Buy Now &#8594;</a>
+      <btn onclick="addToCart('656e0a35a459844916bcfdfe', 10)" class="btn">Buy Now &#8594;</btn>
     </div>
   </div>
 </div>
 `
+
+const addToCart = async (bookId, offer) => {
+  if(!userDetails){
+    window.location.href = "/login.html";
+    return;
+  }
+  const response = await axios.post(`${backendUrl}/cart/${bookId}?offer=${offer}`, {
+  userId: userDetails.user._id,
+  quantity: 1
+  });
+    setTimeout(() => {
+      window.location.href = "/cart.html";
+    }, 2000);
+  }
