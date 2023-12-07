@@ -21,10 +21,6 @@ const productRowRender = (product) => {
     row.setAttribute('data-sold', product.sold);
     row.setAttribute('data-updatedAt', product.updatedAt);
 
-    row.addEventListener('click', () => {
-        window.location.href = `editProduct.html?id=${product._id}`;
-    });
-
     row.innerHTML = `
         <td><img src="${product.coverImage}" alt="${product.title}" class="product-image"></td>
         <td>${product.title}</td>
@@ -34,9 +30,19 @@ const productRowRender = (product) => {
         <td>${product.sold}</td>
         <td>${product.price}</td>
         <td>
-            <a href="deleteProduct.html?id=${product._id}" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
+        <a href="editProduct.html?id=${product._id}" class="btn btn-primary edit-btn">
+            Edit
+        </a>
+        </td>
+        <td>
+            <button onclick="deleteProduct('${product._id}')" class="btn btn-danger">
                 <i class="fas fa-trash"></i>
-            </a>
+            </button>
+        </td>
+        <td>
+        <button onclick="generateCoupon('${product._id}')" class="btn btn-primary generate-coupon-btn">
+            Generate Coupon
+        </button>
         </td>
     `;
 
@@ -44,6 +50,19 @@ const productRowRender = (product) => {
 }
 
 
+const generateCoupon = async (productId) => {
+    try {
+        const response = await axios.post(`${backendUrl}/coupon/generate/${productId}`);
+        const coupon = response.data.data;
+
+        if (coupon) {
+            alert(coupon._id);
+        }
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 
 const getProducts = async () => {
@@ -53,6 +72,16 @@ const getProducts = async () => {
         products.forEach((product) => {
             productRowRender(product);
         });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+const deleteProduct = async (productId) => {
+    try {
+        const response = await axios.delete(`${backendUrl}/product/${productId}`);
+        alert(response.data.message);
+        window.location.reload();
     } catch (error) {
         console.error(error);
     }

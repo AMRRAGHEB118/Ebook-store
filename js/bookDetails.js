@@ -13,7 +13,7 @@ window.location.href = 'ebooks.html';
 if (!userDetails) {
 window.location.href = 'login.html';
 } else {
-if(userDetails.user.role !== 'buyer') {
+if(userDetails.user.role === 'admin') {
 window.location.href = '/';
 }
 }
